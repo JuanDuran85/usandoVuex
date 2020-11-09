@@ -22,3 +22,5 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+# usandoVuex
+Ejemplo básico de uso de Vuex - G3
