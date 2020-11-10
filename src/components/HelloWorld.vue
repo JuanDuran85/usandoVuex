@@ -12,7 +12,7 @@
     </div>
     <div class="my-5">
       <div class="alert alert-primary" role="alert">
-        {{$store.state.numero}}
+        {{traerNumero}}
       </div>
       <div class="alert alert-success" role="alert" v-if="$store.state.activado">
         A simple success alert—check it out!
@@ -28,6 +28,11 @@
 <script>
 export default {
   name: 'HelloWorld',
+  computed: {
+    traerNumero(){
+      return this.$store.getters.mostrandoNumero;
+    }
+  },
   methods: {
     cambiaEstado(){
       this.$store.dispatch('activandoEstadoAccion');

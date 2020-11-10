@@ -15,12 +15,31 @@
         A simple danger alert—check it out!
       </div>
     </div>
+    <hr>
+    <div class="container" v-if="infoCardUser.data">
+      <div class="card">
+        <img :src="infoCardUser.data.avatar" class="card-img-top" :alt="infoCardUser.data.id">
+        <div class="card-body">
+          <h5 class="card-title">{{infoCardUser.data.first_name}} {{infoCardUser.data.last_name}}</h5>
+          <p class="card-text">{{infoCardUser.ad.text}}</p>
+          <a :href="infoCardUser.ad.url" class="btn btn-primary">Visitar la Web</a>
+        </div>
+      </div>
+    </div>
+    <div class="spinner-border" role="status" v-else>
+      <span class="sr-only">Loading...</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'About',
+  computed: {
+    infoCardUser(){
+      return this.$store.getters.mostrarDataUser;
+    }
+  },
   methods: {
     incrementa(){
       this.$store.dispatch('incrementaNumero');
