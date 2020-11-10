@@ -1,10 +1,12 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <button type="button" class="btn btn-danger" @click="decreCon">Decrementar</button>
+    <a class="btn btn-success btn-lg mx-2" @click.prevent="incrementa" role="button">Incrementar</a>
+    <a class="btn btn-danger btn-lg mx-2" @click.prevent="decrementa" role="button">Decrementar</a>
+    <a class="btn btn-info btn-lg mx-2" @click.prevent="resetea" role="button">Reset</a>
     <div class="my-5">
       <div class="alert alert-primary" role="alert">
-        {{$store.state.contador}}
+        {{$store.state.numero}}
       </div>
       <div class="alert alert-success" role="alert" v-if="$store.state.activado">
         A simple success alert—check it out!
@@ -20,8 +22,14 @@
 export default {
   name: 'About',
   methods: {
-    decreCon(){
-      this.$store.dispatch('decrementarConta');
+    incrementa(){
+      this.$store.dispatch('incrementaNumero');
+    },
+    decrementa(){
+      this.$store.dispatch('decrementaNumero');
+    },
+    resetea(){
+      this.$store.dispatch('resetNumero');
     }
   },
 }
